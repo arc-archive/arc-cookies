@@ -1,0 +1,259 @@
+{
+  "version": "experimental",
+  "tags": [
+    {
+      "name": "cookie-details",
+      "path": "./cookie-details.js",
+      "description": "A cookie details view element",
+      "attributes": [
+        {
+          "name": "cookie",
+          "description": "A cookie to render",
+          "type": "object"
+        }
+      ],
+      "properties": [
+        {
+          "name": "cookie",
+          "attribute": "cookie",
+          "description": "A cookie to render",
+          "type": "object"
+        }
+      ],
+      "events": [
+        {
+          "name": "edit"
+        },
+        {
+          "name": "resize",
+          "description": "Dispatched when the element should re-layout itself."
+        }
+      ]
+    },
+    {
+      "name": "cookie-editor",
+      "path": "./cookie-editor.js",
+      "description": "An element to edit cookie metadata.",
+      "attributes": [
+        {
+          "name": "cookie",
+          "description": "Currently existing cookie.\nValues of this cookie will not change.\nAll new values are sent only in the `save-cookie` event",
+          "type": "ARCCookie | undefined",
+          "default": "\"undefined\""
+        },
+        {
+          "name": "compatibility",
+          "description": "Enables compatibility with Anypoint components.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "outlined",
+          "description": "Enables outlined theme.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "readOnly",
+          "description": "When set the editor is in read only mode.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "default": "false"
+        }
+      ],
+      "properties": [
+        {
+          "name": "cookie",
+          "attribute": "cookie",
+          "description": "Currently existing cookie.\nValues of this cookie will not change.\nAll new values are sent only in the `save-cookie` event",
+          "type": "ARCCookie | undefined",
+          "default": "\"undefined\""
+        },
+        {
+          "name": "compatibility",
+          "attribute": "compatibility",
+          "description": "Enables compatibility with Anypoint components.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "outlined",
+          "attribute": "outlined",
+          "description": "Enables outlined theme.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "readOnly",
+          "attribute": "readOnly",
+          "description": "When set the editor is in read only mode.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "invalid",
+          "attribute": "invalid",
+          "type": "boolean",
+          "default": "false"
+        }
+      ],
+      "events": [
+        {
+          "name": "cancel"
+        },
+        {
+          "name": "save"
+        },
+        {
+          "name": "resize",
+          "description": "Dispatched when the element should re-layout itself."
+        }
+      ]
+    },
+    {
+      "name": "cookie-manager",
+      "path": "./cookie-manager.js",
+      "description": "A manager for session cookies.\nRenders list of cookies that can be edited.",
+      "attributes": [
+        {
+          "name": "selectedIndexes",
+          "description": "Selected cookies.",
+          "type": "array"
+        },
+        {
+          "name": "isSearch",
+          "description": "Current search query.",
+          "type": "boolean"
+        },
+        {
+          "name": "editorOpened",
+          "description": "When true the cookie editor panel is rendered",
+          "type": "boolean"
+        },
+        {
+          "name": "detailsOpened",
+          "description": "When true the cookie details panel is rendered",
+          "type": "boolean"
+        },
+        {
+          "name": "exportOptionsOpened",
+          "description": "Indicates that the export options panel is currently rendered.",
+          "type": "boolean"
+        },
+        {
+          "name": "listType",
+          "description": "Changes information density of list items.\nBy default it uses material's paper item with two lines (72px height)\nPossible values are:\n\n- `default` or empty - regular list view\n- `comfortable` - enables MD single line list item vie (52px height)\n- `compact` - enables list that has 40px height (touch recommended)",
+          "type": "string"
+        },
+        {
+          "name": "compatibility",
+          "description": "Enables compatibility with Anypoint components.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "outlined",
+          "description": "Enables outlined theme.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "items",
+          "description": "List of cookies to render",
+          "type": "ARCCookie[]",
+          "default": "\"undefined\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "selectedIndexes",
+          "attribute": "selectedIndexes",
+          "description": "Selected cookies.",
+          "type": "array"
+        },
+        {
+          "name": "isSearch",
+          "attribute": "isSearch",
+          "description": "Current search query.",
+          "type": "boolean"
+        },
+        {
+          "name": "editorOpened",
+          "attribute": "editorOpened",
+          "description": "When true the cookie editor panel is rendered",
+          "type": "boolean"
+        },
+        {
+          "name": "detailsOpened",
+          "attribute": "detailsOpened",
+          "description": "When true the cookie details panel is rendered",
+          "type": "boolean"
+        },
+        {
+          "name": "exportOptionsOpened",
+          "attribute": "exportOptionsOpened",
+          "description": "Indicates that the export options panel is currently rendered.",
+          "type": "boolean"
+        },
+        {
+          "name": "hasItems",
+          "type": "boolean"
+        },
+        {
+          "name": "listHidden",
+          "type": "boolean"
+        },
+        {
+          "name": "dataUnavailable",
+          "description": "True when there's no items after refreshing the state.",
+          "type": "boolean"
+        },
+        {
+          "name": "searchListEmpty",
+          "description": "Computed value. True when the query has been performed and no items\nhas been returned.",
+          "type": "boolean"
+        },
+        {
+          "name": "listType",
+          "attribute": "listType",
+          "description": "Changes information density of list items.\nBy default it uses material's paper item with two lines (72px height)\nPossible values are:\n\n- `default` or empty - regular list view\n- `comfortable` - enables MD single line list item vie (52px height)\n- `compact` - enables list that has 40px height (touch recommended)",
+          "type": "string"
+        },
+        {
+          "name": "twoLines",
+          "description": "This value is computed when the `listType` property change.",
+          "type": "boolean"
+        },
+        {
+          "name": "hasSelection",
+          "type": "boolean"
+        },
+        {
+          "name": "compatibility",
+          "attribute": "compatibility",
+          "description": "Enables compatibility with Anypoint components.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "outlined",
+          "attribute": "outlined",
+          "description": "Enables outlined theme.",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "items",
+          "attribute": "items",
+          "description": "List of cookies to render",
+          "type": "ARCCookie[]",
+          "default": "\"undefined\""
+        }
+      ]
+    }
+  ]
+}
