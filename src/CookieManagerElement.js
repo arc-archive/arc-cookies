@@ -54,7 +54,6 @@ export const selectorTemplate = Symbol('selectorTemplate');
 export const cookieDetailsTemplate = Symbol('cookieDetailsTemplate');
 export const cookieEditorTemplate = Symbol('cookieEditorTemplate');
 export const exportOptionsTemplate = Symbol('exportOptionsTemplate');
-export const toastsTemplate = Symbol('toastsTemplate');
 export const clearDialogTemplate = Symbol('clearDialogTemplate');
 export const cookieActionsTemplate = Symbol('cookieActionsTemplate');
 export const refreshHandler = Symbol('refreshHandler');
@@ -533,13 +532,7 @@ export class CookieManagerElement extends LitElement {
     if (!e.detail.confirmed) {
       return;
     }
-    try {
-      await SessionCookieEvents.delete(this, [...this.items]);
-    } catch (cause) {
-      const toast = this.shadowRoot.querySelector('#dataClearErrorToast');
-      // @ts-ignore
-      toast.opened = true;
-    }
+    await SessionCookieEvents.delete(this, [...this.items]);
   }
 
   /**
@@ -675,7 +668,6 @@ export class CookieManagerElement extends LitElement {
     ${this[cookieDetailsTemplate]()}
     ${this[cookieEditorTemplate]()}
     ${this[exportOptionsTemplate]()}
-    ${this[toastsTemplate]()}
     ${this[clearDialogTemplate]()}
     `;
   }
@@ -818,7 +810,7 @@ export class CookieManagerElement extends LitElement {
       >
         <div class="cookie-value">
           <span class="cookie-name">${item.name}:</span>${item.value}</div>
-        <div secondary>
+        <div data-secondary>
           ${item.domain} ${item.path}
         </div>
       </anypoint-item-body>
@@ -834,7 +826,7 @@ export class CookieManagerElement extends LitElement {
   }
 
   [cookieDetailsTemplate]() {
-    const { detailsOpened, compatibility } = this;
+    const { detailsOpened } = this;
     const cookie = detailsOpened ? this[actionCookieValue]: undefined;
     return html`
     <bottom-sheet
@@ -845,7 +837,6 @@ export class CookieManagerElement extends LitElement {
       .opened="${detailsOpened}"
     >
       <cookie-details
-        ?compatibility="${compatibility}"
         .cookie="${cookie}"
         @edit="${this[editDetailsHandler]}"
       ></cookie-details>
@@ -898,13 +889,6 @@ export class CookieManagerElement extends LitElement {
         @cancel="${this[cancelExportHandler]}"
       ></export-options>
     </bottom-sheet>`;
-  }
-
-  [toastsTemplate]() {
-    return html`
-    <paper-toast id="dataClearErrorToast" class="error-toast"
-      text="Store delete error. Please report an issue"></paper-toast>
-    `;
   }
 
   [clearDialogTemplate]() {
