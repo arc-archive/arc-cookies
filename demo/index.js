@@ -1,5 +1,7 @@
 import { html } from 'lit-html';
-import { DemoPage, EncodingHelpers, ExportHandlerMixin } from '@advanced-rest-client/arc-demo-helper';
+import { DemoPage } from '@advanced-rest-client/arc-demo-helper';
+import * as EncodingHelpers from '@advanced-rest-client/arc-demo-helper/src/EncodingHelpers.js';
+import { ExportHandlerMixin } from '@advanced-rest-client/arc-demo-helper/src/ExportHandlerMixin.js';
 import '@anypoint-web-components/anypoint-button/anypoint-button.js';
 import '@advanced-rest-client/arc-demo-helper/arc-interactive-demo.js';
 import '@anypoint-web-components/anypoint-radio-button/anypoint-radio-button.js';
@@ -104,7 +106,7 @@ class ComponentDemoPage extends ExportHandlerMixin(DemoPage) {
 
   async firstChanged() {
     const cookies = await this.restoreCookies();
-    const [item] = cookies;
+    const item = { ...cookies[0] };
     item.name = 'Updated name';
     SessionCookieEvents.State.update(document.body, item);
   }
@@ -234,8 +236,6 @@ class ComponentDemoPage extends ExportHandlerMixin(DemoPage) {
           <anypoint-button @click="${this.generateData}">Generate 100 cookies</anypoint-button>
           <anypoint-button @click="${this.deleteData}">Remove all</anypoint-button>
           <anypoint-button @click="${this.firstChanged}">Inform first item changed</anypoint-button>
-          <anypoint-button @click="${this.firstDeleted}">Inform first item deleted</anypoint-button>
-          <anypoint-button @click="${this.addNewItem}">Add new history item</anypoint-button>
         </div>
       </section>
     `;
