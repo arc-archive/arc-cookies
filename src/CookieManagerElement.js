@@ -20,7 +20,7 @@ import '@anypoint-web-components/anypoint-button/anypoint-button.js';
 import '@anypoint-web-components/anypoint-button/anypoint-icon-button.js';
 import '@anypoint-web-components/anypoint-item/anypoint-icon-item.js';
 import '@anypoint-web-components/anypoint-item/anypoint-item-body.js';
-import '@advanced-rest-client/arc-ie/export-options.js';
+import '@advanced-rest-client/arc-models/export-options.js';
 import '@anypoint-web-components/anypoint-dialog/anypoint-dialog.js';
 import '@advanced-rest-client/bottom-sheet/bottom-sheet.js';
 import '@anypoint-web-components/anypoint-selector/anypoint-selector.js';

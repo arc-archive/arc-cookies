@@ -2,6 +2,10 @@
 
 A module that contains the logic and the UIs for handle cookies and sessions in Advanced REST Client.
 
+[![Published on NPM](https://img.shields.io/npm/v/@advanced-rest-client/arc-cookies.svg)](https://www.npmjs.com/package/@advanced-rest-client/arc-cookies)
+
+[![tests](https://github.com/advanced-rest-client/arc-cookies/actions/workflows/deployment.yml/badge.svg)](https://github.com/advanced-rest-client/arc-cookies/actions/workflows/deployment.yml)
+
 ## Usage
 
 ### Installation
