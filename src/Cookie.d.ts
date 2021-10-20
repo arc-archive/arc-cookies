@@ -39,6 +39,7 @@ export interface CookieOptions {
 
 /**
  * A class that represents a cookie object.
+ * @deprecated Use `@advanced-rest-client/app` instead.
  */
 export class Cookie {
   /**

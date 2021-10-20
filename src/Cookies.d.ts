@@ -1,6 +1,7 @@
 import { Cookie, CookieOptions } from './Cookie';
 /**
  * A library to handle Cookie parsing.
+ * @deprecated Use `@advanced-rest-client/app` instead.
  */
 export class Cookies {
   /**

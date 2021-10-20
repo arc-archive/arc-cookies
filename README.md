@@ -1,4 +1,8 @@
-# ARC cookies
+# Deprecated
+
+This component is deprecated. Use `@advanced-rest-client/app` instead.
+
+----
 
 A module that contains the logic and the UIs for handle cookies and sessions in Advanced REST Client.
 
